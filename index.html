@@ -20,8 +20,8 @@
         <option value="B">B</option>
         <option value="C">C</option>
     </select>
-    <button id="calc">計算</button>
-    <div id="result"></div>
+    <button id="calc">計算</button><br><br>
+    獎金:<div id="result"></div>
 
     <script>
         let date = document.querySelector('#date');
@@ -32,17 +32,17 @@
         let bonus = '';
         let today = new Date();
         let day1 = new Date(2022, 3, 29);
+        let day11=day1.getTime();
+        console.log(day11);
         console.log(day1);
         console.log(today);
         calc.addEventListener('click', function () {
             let score = performance.value;
             let pay = salary.value;
-            let day = date.value;
+            let day =new Date(date.value).getTime() ;
             console.log(pay);
             console.log(score);
-            console.log(day);
-
-            if (day > day1) {
+            if (day > day11) {
                 bonus = 3000;
             } else if (score == 'A') {
                 bonus = pay * 2
