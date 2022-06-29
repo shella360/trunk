@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trunk</title>
+</head>
+
+<body>
+    <!-- 公司正在進行獎金發放的規劃;依照績效,C 級發放 0.5 個月、B 級發放 1
+    個月、A 級發放 2 個月。未滿三個月者不發獎金,改定額 3000 禮金。未滿
+    一年者,依比例分配。同時,會結算當年度特休假折現。請設計一張表單,
+    填入到職日、薪資、績效,可計算需發出金額,跟全公司加總 -->
+    到職日&nbsp;<input id="date" type="date"><br>
+    今日&nbsp;<input id="date2" type="date"><br>
+    <input id="salary" type="number" placeholder="薪資">
+    <input id="performance" type="text" placeholder="績效">
+    <button id="calc">計算</button>
+    <div id="result"></div>
+
+    <script>
+        let date = document.querySelector('#date');
+        let date2 = document.querySelector('#date2');
+        let salary = document.querySelector('#salary');
+        let performance = document.querySelector('#performance');
+        let calc = document.querySelector('#calc');
+        let result = document.querySelector('#result');
+        let bonus = '';
+        calc.addEventListener('click', function () {
+            let score = performance.value;
+            let pay = salary.value;
+            let day = date.value;
+            let day2=date2.value;
+            console.log(pay);
+            console.log(score);
+            console.log(day);
+            console.log(day2);
+             if (score == 'A') {
+                bonus = pay * 2
+            } else if (score == 'B') {
+                bonus = pay * 1
+            } else if (score == 'C') {
+                bonus = pay * 0.5
+            }
+
+
+            result.innerHTML = bonus;
+        })
+    </script>
+</body>
+
+</html>
