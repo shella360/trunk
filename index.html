@@ -31,18 +31,16 @@
         let result = document.querySelector('#result');
         let bonus = '';
         let today = new Date();
-        let day1 = new Date(2022, 3, 29);
-        let day11=day1.getTime();
-        console.log(day11);
+        let day1 = today.setDate(today.getDate()-90)
         console.log(day1);
         console.log(today);
         calc.addEventListener('click', function () {
             let score = performance.value;
             let pay = salary.value;
             let day =new Date(date.value).getTime() ;
-            console.log(pay);
-            console.log(score);
-            if (day > day11) {
+            console.log(day);
+
+            if (day > day1) {
                 bonus = 3000;
             } else if (score == 'A') {
                 bonus = pay * 2
